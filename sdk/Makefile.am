@@ -21,6 +21,10 @@ clean-local:
 install-data-local: copy-sdk
 	$(INSTALL) -D $(silk_src_dir)/$(silk_lib) $(DESTDIR)$(prefix)/lib/$(silk_lib)
 
+uninstall-local:
+	rm -f $(DESTDIR)$(prefix)/lib/$(silk_lib)
+
+	
 EXTRA_DIST= \
 	./patch_pic.diff \
 	./known_checksums/SILK_SDK_SRC_v1.0.8.zip.md5 \
