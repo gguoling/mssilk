@@ -37,8 +37,10 @@ endif()
 
 if(LINPHONE_BUILDER_GROUP_EXTERNAL_SOURCE_PATH_BUILDERS)
 	include("${EP_ms2_CONFIG_DIR}/Mediastreamer2Config.cmake")
+	include("${EP_ortp_CONFIG_DIR}/OrtpConfig.cmake")
 else()
 	find_package(Mediastreamer2 REQUIRED)
+	find_package(Ortp REQUIRED)
 endif()
 
 set(FLAVOUR "FIX")
@@ -55,7 +57,7 @@ include_directories(
 add_definitions(-DVERSION=\"${PROJECT_VERSION}\")
 
 
-set(LIBS ${MEDIASTREAMER2_LIBRARIES})
+set(LIBS ${MEDIASTREAMER2_LIBRARIES} ${ORTP_LIBRARIES})
 
 set(SOURCE_FILES
 	${SILK_SOURCE_FILES}
