@@ -40,7 +40,7 @@ if(LINPHONE_BUILDER_GROUP_EXTERNAL_SOURCE_PATH_BUILDERS)
 	include("${EP_ortp_CONFIG_DIR}/OrtpConfig.cmake")
 else()
 	find_package(Mediastreamer2 REQUIRED)
-	find_package(Ortp REQUIRED)
+	find_package(ORTP REQUIRED)
 endif()
 
 set(FLAVOUR "FIX")
