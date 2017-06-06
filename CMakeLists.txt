@@ -82,9 +82,12 @@ if(ENABLE_SHARED)
 	endif()
 	target_link_libraries(mssilk ${LIBS})
 	if(IOS)
+		set(MIN_OS ${LINPHONE_IOS_DEPLOYMENT_TARGET})
+		set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/build/osx/")
 		set_target_properties(mssilk PROPERTIES
 			FRAMEWORK TRUE
-			MACOSX_FRAMEWORK_IDENTIFIER com.belledonne-communications.mssilk
+			MACOSX_FRAMEWORK_IDENTIFIER org.linphone.mssilk
+  			MACOSX_FRAMEWORK_INFO_PLIST Info.plist.in
 		) 
 	endif()
 	if(MSVC)
